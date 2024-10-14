@@ -1,12 +1,30 @@
 # A3_Elnaz_Askari_GAMLAB
+'''
 This package is written as the third project for GAMLAB artificial intelligence course.
+
+APM:
+
+salam aval inke tamame import hatoon ro biarid dar gehsmate IMPORT LIBS va hamantor ke goftim tamame importe ketabkhoen ha bayad avale code bashe va ag vasate code bashe behamrikhte hast.
+nokteye dovom--> kfodl ro shoam n_splitsa 25 gozashtid , in frgh dare ba train test split --> train test split mige chan darsad mikhay k minvisi 0.25 ama inja 
+cross validation mige chan tike taghsim konam datato , ag 25% mikhat bayad n_splits ro bzari 4 . 5 ham mishe gozasht. man 5 gozashtam va correct kardam
+yekbar dg run konid va kafie va dar gehsmate nahaee dar report benevisid: data ha chi bode x chi bode y chi bode, ch hadafi dahstid har model ch scori dade va bhtrin kodom bode
+'''
+
+
+#-----------Import Libs----------------------
 import numpy as np
 from sklearn.datasets import fetch_california_housing
+
+
+
+#-----------Import Data----------------------
 data=fetch_california_housing()
 
-
+#-----------STEP0: DATA CLEANING----------------------
 #step0-----> data ha clean hastan
 
+
+#-----------STEP1: X , Y----------------------
 #step1-----> tafkik x , y 
 x=data.data
 y=data.target
@@ -35,10 +53,9 @@ y--->gheymate khone
 #===============================LinearRegression===============================
 #==============================================================================
 
-
 #step2-----> kfold
 from sklearn.model_selection import KFold
-kf=KFold(n_splits=25,shuffle=True,random_state=42)
+kf=KFold(n_splits=5,shuffle=True,random_state=42)
 
 #step3-----> model = LinearRegression
 from sklearn.linear_model import LinearRegression
@@ -67,7 +84,7 @@ gs.predict(np.array([5,20,5,1,1000,2,25,-122]).reshape(1,-1))
 
 #step2-----> kfold
 from sklearn.model_selection import KFold
-kf=KFold(n_splits=25,shuffle=True,random_state=42)
+kf=KFold(n_splits=5,shuffle=True,random_state=42)
 
 #step3-----> model = KNeighborsRegressor
 from sklearn.neighbors import KNeighborsRegressor
@@ -97,7 +114,7 @@ gs.predict(np.array([5,20,5,1,1000,2,25,-122]).reshape(1,-1))
 
 #step2-----> kfold
 from sklearn.model_selection import KFold
-kf=KFold(n_splits=25,shuffle=True,random_state=42)
+kf=KFold(n_splits=5,shuffle=True,random_state=42)
 
 #step3-----> model = DecisionTreeRegressor
 from sklearn.tree import DecisionTreeRegressor
@@ -137,7 +154,7 @@ ye ghesmati az total sample (20  --> 10 ,
 
 #step2-----> kfold
 from sklearn.model_selection import KFold
-kf=KFold(n_splits=25,shuffle=True,random_state=42)
+kf=KFold(n_splits=5,shuffle=True,random_state=42)
 
 
 #step3-----> model = RandomForestRegressor
@@ -247,4 +264,18 @@ gs=GridSearchCV(model,my_params,cv=kf,scoring='neg_mean_absolute_percentage_erro
 
 gs.fit(x,y)
 ###############
+
+
+'''
+
+
+FINAL REPORT
+
+
+
+
+
+
+
+'''
 
